@@ -1,0 +1,16 @@
+{
+  "name": "sky",
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "git://github.com/components/handlebars.js.git#~1.3.0",
+    "jquery": ">1.7",
+    "angular": ">1.0"
+  }
+}

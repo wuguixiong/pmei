@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>test for table</title>
+
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="container" style="width: 800px;margin: 0 auto;"></div>
+    <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/handlebars/handlebars.runtime.min.js"></script>
+    <script type="text/javascript" src="../tableTmpl.js"></script>
+    <script type="text/javascript" src="../table.js"></script>
+    <script type="text/javascript">
+    var data = [];
+
+    for (var i = 0; i < 7; i++) {
+        if (i) {
+            headers.push({
+                headerType: 'text',
+                contentType: 'text',
+                caption: 'col' + i,
+                visible: true
+            });
+        } else {
+            var headers = [{
+                headerType: 'radio',
+                contentType: 'radio',
+                caption: 'col' + i,
+                visible: true
+            }];
+        }
+        data[i] = [];
+        for (var j = 0; j < 20; j++) {
+            if (i) {
+
+                data[i].push('data' + i + '_' + j);
+            } else {
+                data[i].push({
+                    checked: j > 10,
+                    value: j,
+                    name: 'same'
+                });
+            }
+        }
+
+    }
+    var table = new sky.Table({
+        id: 'test',
+        container: '#container',
+        headers: headers,
+        data: data
+    });
+
+    table.render();
+    </script>
+</body>
+
+</html>
